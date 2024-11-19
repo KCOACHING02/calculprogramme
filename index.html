@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur Métabolique</title>
+    <title>Trouve le programme qui te convient</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,7 +48,7 @@
             margin-top: 20px;
         }
         .result-rectangle {
-            background-color: #4CAF50;
+            background-color: #000; /* Couleur noire */
             color: white;
             border-radius: 10px;
             width: 250px;
@@ -61,6 +61,17 @@
             width: 100%;
             border-radius: 10px 10px 0 0; /* Coins arrondis en haut */
         }
+        #back-button {
+            width: 50%; /* Réduit la largeur du bouton de retour */
+            padding: 10px;
+            margin: 20px auto; /* Centrer le bouton */
+            display: none; /* Masqué par défaut */
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px; /* Centrer le logo */
+            width: 150px; /* Ajustez la taille selon vos besoins */
+        }
         @media (max-width: 600px) {
             .result-rectangle {
                 width: 180px;
@@ -72,7 +83,8 @@
     </style>
 </head>
 <body>
-    <h1>Calculateur Métabolique</h1>
+    <img src="logo.jpg" alt="Logo" class="logo"> <!-- Logo centré -->
+    <h1>Trouve le programme qui te convient</h1>
     <div id="input-fields">
         <label for="gender">Genre :</label>
         <select id="gender">
@@ -95,8 +107,8 @@
         </select>
         <button onclick="calculate()">Calculer</button>
     </div>
-    <h2>Résultats</h2>
     <div id="results" class="results-container"></div>
+    <button id="back-button" onclick="goBack()">Retour au formulaire</button>
 
     <script>
         function calculate() {
@@ -126,26 +138,32 @@
             document.getElementById('results').innerHTML = `
                 <div class="result-rectangle">
                     <img src="imgprog1500.jpg" alt="Challenge 4 semaines">
-                    Déficit: <br><strong>${deficit1.toFixed(2)} kcal</strong><br>
-                    Perte: <strong>${weightLoss1.toFixed(2)} kg</strong><br>
-                    Challenge 4 semaines
+                    Déficit quotidien: <br><strong>${deficit1.toFixed(2)} kcal</strong><br>
+                    Tu perdras environ <strong>${weightLoss1.toFixed(2)} kg</strong> par mois avec le Challenge 4 semaines.
                 </div>
                 <div class="result-rectangle">
                     <img src="imgprog1400.jpg" alt="Défi 14 jours">
-                    Déficit: <br><strong>${deficit2.toFixed(2)} kcal</strong><br>
-                    Perte: <strong>${weightLoss2.toFixed(2)} kg</strong><br>
-                    Défi 14 jours
+                    Déficit quotidien: <br><strong>${deficit2.toFixed(2)} kcal</strong><br>
+                    Tu perdras environ <strong>${weightLoss2.toFixed(2)} kg</strong> par mois avec le Défi 14 jours.
                 </div>
                 <div class="result-rectangle">
                     <img src="imgprog1300.jpg" alt="Programme minceur express">
-                    Déficit: <br><strong>${deficit3.toFixed(2)} kcal</strong><br>
-                    Perte: <strong>${weightLoss3.toFixed(2)} kg</strong><br>
-                    Programme minceur express
+                    Déficit quotidien: <br><strong>${deficit3.toFixed(2)} kcal</strong><br>
+                    Tu perdras environ <strong>${weightLoss3.toFixed(2)} kg</strong> par mois avec le Programme minceur express.
                 </div>
             `;
 
             // Masquer les champs d'entrée
             document.getElementById('input-fields').style.display = 'none';
+            // Afficher le bouton de retour
+            document.getElementById('back-button').style.display = 'block';
+        }
+
+        function goBack() {
+            // Réinitialiser le formulaire
+            document.getElementById('input-fields').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('back-button').style.display = 'none';
         }
     </script>
 </body>
