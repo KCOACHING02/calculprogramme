@@ -61,6 +61,14 @@
             width: 100%;
             border-radius: 10px 10px 0 0; /* Coins arrondis en haut */
         }
+        .result-box {
+            background-color: #ffeb3b; /* Fond jaune */
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: black; /* Texte en noir */
+        }
         #back-button {
             width: 50%; /* Réduit la largeur du bouton de retour */
             padding: 10px;
@@ -127,29 +135,29 @@
 
             const TDEE = BMR * activity;
 
-            const weightLoss1 = (TDEE - 1500) * 30 / 7700; // Challenge 4 semaines
-            const weightLoss2 = (TDEE - 1400) * 30 / 7700; // Défi 14 jours
-            const weightLoss3 = (TDEE - 1300) * 30 / 7700; // Programme minceur express
+            const weightLoss1 = Math.round((TDEE - 1500) * 30 / 7700 * 10) / 10; // Challenge 4 semaines
+            const weightLoss2 = Math.round((TDEE - 1400) * 30 / 7700 * 10) / 10; // Défi 14 jours
+            const weightLoss3 = Math.round((TDEE - 1300) * 30 / 7700 * 10) / 10; // Programme minceur express
 
-            const deficit1 = TDEE - 1500;
-            const deficit2 = TDEE - 1400;
-            const deficit3 = TDEE - 1300;
+            const deficit1 = Math.round(TDEE - 1500);
+            const deficit2 = Math.round(TDEE - 1400);
+            const deficit3 = Math.round(TDEE - 1300);
 
             document.getElementById('results').innerHTML = `
                 <div class="result-rectangle">
                     <img src="imgprog1500.jpg" alt="Challenge 4 semaines">
-                    Déficit quotidien: <br><strong>${deficit1.toFixed(2)} kcal</strong><br>
-                    Tu perdras environ <strong>${weightLoss1.toFixed(2)} kg</strong> par mois avec le Challenge 4 semaines.
+                    <div class="result-box">Déficit quotidien: <strong>${deficit1} kcal</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss1} kg</strong></div>
                 </div>
                 <div class="result-rectangle">
                     <img src="imgprog1400.jpg" alt="Défi 14 jours">
-                    Déficit quotidien: <br><strong>${deficit2.toFixed(2)} kcal</strong><br>
-                    Tu perdras environ <strong>${weightLoss2.toFixed(2)} kg</strong> par mois avec le Défi 14 jours.
+                    <div class="result-box">Déficit quotidien: <strong>${deficit2} kcal</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss2} kg</strong></div>
                 </div>
                 <div class="result-rectangle">
                     <img src="imgprog1300.jpg" alt="Programme minceur express">
-                    Déficit quotidien: <br><strong>${deficit3.toFixed(2)} kcal</strong><br>
-                    Tu perdras environ <strong>${weightLoss3.toFixed(2)} kg</strong> par mois avec le Programme minceur express.
+                    <div class="result-box">Déficit quotidien: <strong>${deficit3} kcal</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss3} kg</strong></div>
                 </div>
             `;
 
