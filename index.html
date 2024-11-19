@@ -58,7 +58,7 @@
             text-align: center;
         }
         .result-rectangle img {
-            width: 100%;
+            width: 100%; /* Taille originale de l'image */
             border-radius: 10px 10px 0 0; /* Coins arrondis en haut */
         }
         .result-box {
@@ -145,19 +145,25 @@
 
             document.getElementById('results').innerHTML = `
                 <div class="result-rectangle">
-                    <img src="imgprog1500.jpg" alt="Challenge 4 semaines">
+                    <a href="https://payhip.com/b/elsIB" target="_blank">
+                        <img src="imgprog1500.jpg" alt="Challenge 4 semaines">
+                    </a>
                     <div class="result-box">Déficit quotidien: <strong>${deficit1} kcal</strong></div>
-                    <div class="result-box">Perte de poids estimée par mois: <strong>${weightLoss1} kg</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss1} kg</strong></div>
                 </div>
                 <div class="result-rectangle">
-                    <img src="imgprog1400.jpg" alt="Défi 14 jours">
+                    <a href="https://payhip.com/b/8EcnW" target="_blank">
+                        <img src="imgprog1400.jpg" alt="Défi 14 jours">
+                    </a>
                     <div class="result-box">Déficit quotidien: <strong>${deficit2} kcal</strong></div>
-                    <div class="result-box">Perte de poids estimée par mois: <strong>${weightLoss2} kg</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss2} kg</strong></div>
                 </div>
                 <div class="result-rectangle">
-                    <img src="imgprog1300.jpg" alt="Programme minceur express">
+                    <a href="https://taplink.cc/kcoaching/d/37f9/" target="_blank">
+                        <img src="imgprog1300.jpg" alt="Programme minceur express">
+                    </a>
                     <div class="result-box">Déficit quotidien: <strong>${deficit3} kcal</strong></div>
-                    <div class="result-box">Perte de poids estimée par mois: <strong>${weightLoss3} kg</strong></div>
+                    <div class="result-box">Perte de poids estimée: <strong>${weightLoss3} kg</strong></div>
                 </div>
             `;
 
