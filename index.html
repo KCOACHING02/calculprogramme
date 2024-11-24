@@ -48,7 +48,7 @@
             margin-top: 20px;
         }
         .result-rectangle {
-            background-color: #000; /* Couleur noire */
+            /* Suppression de la couleur de fond noire */
             color: white;
             border-radius: 10px;
             width: 250px;
@@ -135,9 +135,9 @@
 
             const TDEE = BMR * activity;
 
-            const weightLoss1 = Math.round((TDEE - 1500) * 30 / 7700 * 10) / 10; // Challenge 4 semaines
-            const weightLoss2 = Math.round((TDEE - 1400) * 30 / 7700 * 10) / 10; // Défi 14 jours
-            const weightLoss3 = Math.round((TDEE - 1300) * 30 / 7700 * 10) / 10; // Programme minceur express
+            const weightLoss1 = Math.round((TDEE - 1500) * 90 / 7700 * 10) / 10; // Challenge 4 semaines
+            const weightLoss2 = Math.round((TDEE - 1400) * 90 / 7700 * 10) / 10; // Défi 14 jours
+            const weightLoss3 = Math.round((TDEE - 1300) * 90 / 7700 * 10) / 10; // Programme minceur express
 
             document.getElementById('results').innerHTML = `
                 <div class="result-rectangle">
