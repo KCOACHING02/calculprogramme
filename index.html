@@ -11,39 +11,39 @@
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centre le contenu horizontalement */
         }
         h1 {
             text-align: center;
             color: #333;
         }
         .button {
-            width: 100%;
+            width: 100%; /* Largeur ajustée pour les boutons "Je suis une femme" et "Je suis un homme" */
             padding: 15px;
-            margin: 10px auto;
+            margin: 10px auto; /* Centre le bouton */
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
             color: white;
-            background-color: #4CAF50;
-            display: block;
+            background-color: #4CAF50; /* Vert */
+            display: block; /* Pour centrer le bouton */
         }
         .female {
-            background-color: #d5006d;
+            background-color: #d5006d; /* Rose plus foncé */
         }
         .male {
-            background-color: #1e90ff;
+            background-color: #1e90ff; /* Bleu */
         }
         .input-container {
-            display: none;
+            display: none; /* Masqué par défaut */
             margin-top: 20px;
-            width: 50%;
-            padding: 0 10%;
+            width: 50%; /* Largeur des champs de saisie */
+            padding: 0 10%; /* Ajoute un padding pour l'espacement */
         }
         input, select {
-            width: 100%;
+            width: 100%; /* Largeur des champs de saisie */
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -67,17 +67,17 @@
             width: 250px;
         }
         .result-box {
-            background-color: #ffeb3b;
+            background-color: #ffeb3b; /* Jaune */
             padding: 10px;
             border-radius: 5px;
             margin-top: 10px;
             font-weight: bold;
-            color: black;
+            color: black; /* Texte en noir */
         }
         .logo {
             display: block;
-            margin: 0 auto 20px;
-            width: 150px;
+            margin: 0 auto 20px; /* Centrer le logo */
+            width: 150px; /* Ajustez la taille selon vos besoins */
         }
         @media (max-width: 600px) {
             .result-rectangle {
@@ -93,9 +93,10 @@
     </style>
 </head>
 <body>
-    <img src="logo.jpg" alt="Logo" class="logo">
+    <img src="LOGOMDM.PNG" alt="Logo" class="logo"> <!-- Logo centré -->
     <h1>Trouve le programme qui te convient</h1>
-<div id="gender-selection">
+    
+    <div id="gender-selection">
         <button class="button female" onclick="selectGender('female')">Je suis une femme</button>
         <button class="button male" onclick="selectGender('male')">Je suis un homme</button>
     </div>
@@ -132,7 +133,8 @@
 
     <div id="results" class="results-container"></div>
     <button id="back-button" class="button" onclick="goBack()" style="display: none;">Retour au formulaire</button>
-<script>
+
+    <script>
         let gender;
 
         function selectGender(selectedGender) {
@@ -164,11 +166,22 @@
 
             const TDEE = BMR * activity;
 
-            const weightLoss1 = Math.round((TDEE - 1500) * 90 / 7700 * 10) / 10;
-            const weightLoss2 = Math.round((TDEE - 1400) * 90 / 7700 * 10) / 10;
-            const weightLoss3 = Math.round((TDEE - 1300) * 90 / 7700 * 10) / 10;
+            const weightLoss1 = Math.round((TDEE - 1500) * 90 / 7700 * 10) / 10; // Challenge 4 semaines
+            const weightLoss2 = Math.round((TDEE - 1400) * 90 / 7700 * 10) / 10; // Défi 14 jours
+            const weightLoss3 = Math.round((TDEE - 1300) * 90 / 7700 * 10) / 10; // Programme minceur express
+
+            // Calcul pour le nouveau programme Challenge 49 jours
+            const weightLoss49days = Math.round((((TDEE - 1300) * 7 + (TDEE - 1400) * 14 + (TDEE - 1500) * 28) / 49) * 90 / 7700 * 10) / 10;
 
             document.getElementById('results').innerHTML = `
+                <div class="result-rectangle">
+                    <a href="https://taplink.cc/kcoaching/d/nouveauprogramme/" target="_blank">
+                        <img src="Challenge49jours.png" alt="Challenge 49 jours" style="width: 100%; border-radius: 10px 10px 0 0;">
+                    </a>
+                    <div class="result-box">
+                        Perte de poids estimée en 3 mois: <strong>${weightLoss49days} kg</strong>
+                    </div>
+                </div>
                 <div class="result-rectangle">
                     <a href="https://payhip.com/b/elsIB" target="_blank">
                         <img src="imgprog1500.png" alt="Challenge 4 semaines" style="width: 100%; border-radius: 10px 10px 0 0;">
@@ -181,7 +194,7 @@
                     <a href="https://payhip.com/b/8EcnW" target="_blank">
                         <img src="imgprog1400.png" alt="Défi 14 jours" style="width: 100%; border-radius: 10px 10px 0 0;">
                     </a>
-                    <div class="result-box">
+                                            <div class="result-box">
                         Perte de poids estimée en 3 mois: <strong>${weightLoss2} kg</strong>
                     </div>
                 </div>
@@ -193,19 +206,22 @@
                         Perte de poids estimée en 3 mois: <strong>${weightLoss3} kg</strong>
                     </div>
                 </div>
-                <img src="avantapres.jpg" alt="Avant et Après" style="width: 100%; border-radius: 10px; margin-top: 20px;">
             `;
+
+            // Masquer les champs d'entrée
             document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
+            // Afficher le bouton de retour
             document.getElementById('back-button').style.display = 'block';
         }
 
         function goBack() {
+            // Réinitialiser le formulaire
             document.getElementById('gender-selection').style.display = 'block';
             document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
             document.getElementById('results').innerHTML = '';
-            document.getElementById('back-button').
-       document.getElementById('back-button').style.display = 'none';
+            document.getElementById('back-button').style.display = 'none';
         }
     </script>
 </body>
 </html>
+
