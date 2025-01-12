@@ -79,6 +79,13 @@
             margin: 0 auto 20px; /* Centrer le logo */
             width: 150px; /* Ajustez la taille selon vos besoins */
         }
+        .discount-message {
+            display: none; /* Masqué par défaut */
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
         @media (max-width: 600px) {
             .result-rectangle {
                 width: 90%;
@@ -94,16 +101,6 @@
 </head>
 <body>
     <img src="logo.jpg" alt="Logo" class="logo"> <!-- Logo centré -->
-    <body>
-    <img src="logo.jpg" alt="Logo" class="logo"> <!-- Logo centré -->
-    
-    <!-- Phrase ajoutée ici -->
-    <p style="text-align: center; font-weight: bold; color: #333;">Bravo si tu es arrivé(e) jusque là c'est que tu es sur la bonne voie et pour t'encourager dans ta perte de poids je t'offre 20% de réduction sur tous les programmes avec le code EXT20 profites en!</p>
-    
-    <h1>Trouve le programme qui te convient</h1>
-    
-    <!-- Reste de votre code HTML -->
-</body>
 
     <h1>Trouve le programme qui te convient</h1>
     
@@ -143,6 +140,8 @@
     </div>
 
     <div id="results" class="results-container"></div>
+    <!-- Message de réduction ici -->
+    <p id="discount-message" class="discount-message">Bravo si tu es arrivé jusque là c'est que tu es sur la bonne voie et pour t'encourager dans ta perte de poids je t'offre 20% de réduction sur tous les programmes avec le code EXT20 profites en!</p>
     <button id="back-button" class="button" onclick="goBack()" style="display: none;">Retour au formulaire</button>
 
     <script>
@@ -194,45 +193,42 @@
                     </div>
                 </div>
                 <div class="result-rectangle">
-                    <a href="https://payhip.com/b/elsIB" target="_blank">
-                        <img src="imgprog1500.png" alt="Challenge 4 semaines" style="width: 100%; border-radius: 10px 10px 0 0;">
-                    </a>
-                    <div class="result-box">
-                        Perte de poids estimée en 3 mois: <strong>${weightLoss1} kg</strong>
-                    </div>
-                </div>
-                <div class="result-rectangle">
-                    <a href="https://payhip.com/b/8EcnW" target="_blank">
-                        <img src="imgprog1400.png" alt="Défi 14 jours" style="width: 100%; border-radius: 10px 10px 0 0;">
-                    </a>
-                                            <div class="result-box">
-                        Perte de poids estimée en 3 mois: <strong>${weightLoss2} kg</strong>
-                    </div>
-                </div>
-                <div class="result-rectangle">
-                    <a href="https://taplink.cc/kcoaching/d/37f9/" target="_blank">
-                        <img src="imgprog1300.png" alt="Programme minceur express" style="width: 100%; border-radius: 10px 10px 0 0;">
-                    </a>
-                    <div class="result-box">
-                        Perte de poids estimée en 3 mois: <strong>${weightLoss3} kg</strong>
-                    </div>
-                </div>
-            `;
+                            <a href="https://payhip.com/b/8EcnW" target="_blank">
+            <img src="imgprog1400.png" alt="Défi 14 jours" style="width: 100%; border-radius: 10px 10px 0 0;">
+        </a>
+        <div class="result-box">
+            Perte de poids estimée en 3 mois: <strong>${weightLoss2} kg</strong>
+        </div>
+    </div>
+    <div class="result-rectangle">
+        <a href="https://taplink.cc/kcoaching/d/37f9/" target="_blank">
+            <img src="imgprog1300.png" alt="Programme minceur express" style="width: 100%; border-radius: 10px 10px 0 0;">
+        </a>
+        <div class="result-box">
+            Perte de poids estimée en 3 mois: <strong>${weightLoss3} kg</strong>
+        </div>
+    </div>
+    `;
 
-            // Masquer les champs d'entrée
-            document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
-            // Afficher le bouton de retour
-            document.getElementById('back-button').style.display = 'block';
-        }
+    // Masquer les champs d'entrée
+    document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
+    // Afficher le bouton de retour
+    document.getElementById('back-button').style.display = 'block';
+    // Afficher le message de réduction
+    document.getElementById('discount-message').style.display = 'block';
+}
 
-        function goBack() {
-            // Réinitialiser le formulaire
-            document.getElementById('gender-selection').style.display = 'block';
-            document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
-            document.getElementById('results').innerHTML = '';
-            document.getElementById('back-button').style.display = 'none';
-        }
-    </script>
+function goBack() {
+    // Réinitialiser le formulaire
+    document.getElementById('gender-selection').style.display = 'block';
+    document.querySelectorAll('.input-container').forEach(container => container.style.display = 'none');
+    document.getElementById('results').innerHTML = '';
+    document.getElementById('back-button').style.display = 'none';
+    // Masquer le message de réduction
+    document.getElementById('discount-message').style.display = 'none';
+}
+</script>
 </body>
 </html>
+
 
